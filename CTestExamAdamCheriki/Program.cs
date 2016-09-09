@@ -11,7 +11,7 @@ namespace CTestExamAdamCheriki
     {
         static void Main(string[] args)
         {
-            FileInfo f = new FileInfo(@"~/jav_logs.xml");
+            FileInfo f = new FileInfo(@"d:\jav_logs.xml");
             var list = Parser.Parse<Event>(f);
             list.ToList().ForEach(e => Console.WriteLine(e));
             Console.Read();
