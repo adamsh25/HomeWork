@@ -20,7 +20,7 @@ namespace CTestExamAdamCheriki
             }
         }
 
-        public virtual bool isValid<T>(T instance, XmlNode xmlElement, PropertyInfo clsProp)
+        protected virtual bool isValid<T>(T instance, XmlNode xmlElement, PropertyInfo clsProp)
         {
             bool isValid = false;
 

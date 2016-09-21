@@ -11,6 +11,5 @@ namespace CTestExamAdamCheriki
     public interface IXmlParseAttribute
     {
         void SetValueByAttribute<T>(T instance, XmlNode xmlElement, PropertyInfo clsProp);
-        bool isValid<T>(T instance, XmlNode xmlElement, PropertyInfo clsProp);
     }
 }

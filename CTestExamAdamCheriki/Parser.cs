@@ -22,11 +22,11 @@ namespace CTestExamAdamCheriki
             ParseClassAttribute clsAttribute = typeof(T).GetCustomAttribute<ParseClassAttribute>();
             PropertyInfo[] clsProps = typeof(T).GetProperties();
 
-            XmlNodeList xmlnode = xmldoc.GetElementsByTagName(clsAttribute.NodeName);
-            for (int i = 0; i <= xmlnode.Count - 1; i++)
+            XmlNodeList xmlNodeList = xmldoc.GetElementsByTagName(clsAttribute.NodeName);
+            foreach (XmlNode node in xmlNodeList)
             {
                 T instance = (T)Activator.CreateInstance<T>();
-                instance = (T)ParseClass<T>(xmlnode[i], instance);
+                instance = (T)ParseClass<T>(node, instance);
                 clsList.Add(instance);
             }
             return clsList;
