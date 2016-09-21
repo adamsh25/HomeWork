@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2DCFE84F-EB2F-4DBB-A797-2E51A8692E1F}</ProjectGuid>
+    <ProjectGuid>{74135310-AB7B-43A8-A2C8-2780F0CAC565}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AcUnitTests</RootNamespace>
-    <AssemblyName>AcUnitTests</AssemblyName>
+    <RootNamespace>UnitTestAcGoogleSearcher</RootNamespace>
+    <AssemblyName>UnitTestAcGoogleSearcher</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,13 +50,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTestParser.cs" />
+    <Compile Include="UnitTestGoogleSearcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AcXmlParser\AcXmlParser.csproj">
-      <Project>{39ffa57c-bc2f-4888-b574-4700012480fa}</Project>
-      <Name>AcXmlParser</Name>
+    <ProjectReference Include="..\..\Common\GoogleSearcher\AcGoogleSearcher.csproj">
+      <Project>{b5e8d248-9150-4cf0-9033-f5d85d3d50c5}</Project>
+      <Name>AcGoogleSearcher</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
