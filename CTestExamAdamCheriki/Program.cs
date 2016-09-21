@@ -1,6 +1,6 @@
-﻿using System;
+﻿using AcBL;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +11,7 @@ namespace CTestExamAdamCheriki
     {
         static void Main(string[] args)
         {
-            FileInfo f = new FileInfo(@"d:\jav_logs.xml");
-            var list = Parser.Parse<Event>(f);
-            list.ToList().ForEach(e => Console.WriteLine(e));
+            DataBL.Process();
             Console.Read();
         }
     }

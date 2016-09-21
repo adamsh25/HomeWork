@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace CTestExamAdamCheriki
+namespace AcXmlParser
 {
     public static class Parser
     {
@@ -20,7 +20,6 @@ namespace CTestExamAdamCheriki
             xmldoc.Load(sr);
 
             ParseClassAttribute clsAttribute = typeof(T).GetCustomAttribute<ParseClassAttribute>();
-            PropertyInfo[] clsProps = typeof(T).GetProperties();
 
             XmlNodeList xmlNodeList = xmldoc.GetElementsByTagName(clsAttribute.NodeName);
             foreach (XmlNode node in xmlNodeList)

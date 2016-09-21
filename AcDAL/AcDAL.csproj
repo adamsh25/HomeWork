@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B38FF775-83FB-434F-AF48-EF3B2187C3A4}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{230E16CD-FA87-4712-87B7-51C1BBD4E613}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CTestExamAdamCheriki</RootNamespace>
-    <AssemblyName>CTestExamAdamCheriki</AssemblyName>
+    <RootNamespace>AcDAL</RootNamespace>
+    <AssemblyName>AcDAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,21 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventData.cs" />
-    <Compile Include="Event.cs" />
-    <Compile Include="XmlParseAttribute.cs" />
-    <Compile Include="IXmlParseAttribute.cs" />
-    <Compile Include="ParseDictFieldAttribute.cs" />
-    <Compile Include="ParseClassAttribute.cs" />
-    <Compile Include="ParseAtrFieldAttribute.cs" />
-    <Compile Include="ParseFieldAttribute.cs" />
-    <Compile Include="Parser.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="AcMongoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.XPath;
 
-namespace CTestExamAdamCheriki
+namespace AcXmlParser
 {
     public class ParseDictFieldAttribute : XmlParseAttribute
     {

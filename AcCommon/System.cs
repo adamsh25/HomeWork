@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AcXmlParser;
+using GoogleSearcher;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CTestExamAdamCheriki
+namespace AcCommon
 {
     public class System
     {

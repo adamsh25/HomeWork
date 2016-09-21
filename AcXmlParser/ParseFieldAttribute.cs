@@ -6,26 +6,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace CTestExamAdamCheriki
+namespace AcXmlParser
 {
-    public class ParseClassAttribute : XmlParseAttribute
+    public class ParseFieldAttribute : XmlParseAttribute
     {
-        public string NodeName { get; set; }
+        public string NodePathName { get; set; }
 
         protected override void SetValue<T>(T instance, XmlNode xmlElement, PropertyInfo clsProp)
         {
             try
             {
-                object innerInstance = Activator.CreateInstance(clsProp.PropertyType);
-                var innerNode = xmlElement[this.NodeName];
-                innerInstance = Parser.ParseClass(innerNode, innerInstance);
-                clsProp.SetValue(instance, innerInstance, null);
+
+                string value = xmlElement[this.NodePathName].InnerText;
+                clsProp.SetValue(instance, Convert.ChangeType(value, clsProp.PropertyType), null);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
-
     }
 }
