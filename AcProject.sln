@@ -29,9 +29,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcGoogleSearcher", "Common\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestAcXmlParser", "UnitTests\UnitTestAcXmlParser\UnitTestAcXmlParser.csproj", "{2DCFE84F-EB2F-4DBB-A797-2E51A8692E1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestBL", "UnitTestBL\UnitTestBL.csproj", "{7FA5C81D-3D33-4E0C-9721-F6841B680EE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestBL", "UnitTests\UnitTestBL\UnitTestBL.csproj", "{7FA5C81D-3D33-4E0C-9721-F6841B680EE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDAL", "UnitTestDAL\UnitTestDAL.csproj", "{D0FBCE66-ED8E-4761-85D6-E4DF2365E364}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDAL", "UnitTests\UnitTestDAL\UnitTestDAL.csproj", "{D0FBCE66-ED8E-4761-85D6-E4DF2365E364}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
