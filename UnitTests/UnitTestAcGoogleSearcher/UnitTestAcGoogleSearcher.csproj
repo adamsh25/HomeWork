@@ -53,12 +53,6 @@
     <Compile Include="UnitTestGoogleSearcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\GoogleSearcher\AcGoogleSearcher.csproj">
-      <Project>{b5e8d248-9150-4cf0-9033-f5d85d3d50c5}</Project>
-      <Name>AcGoogleSearcher</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{32F3E273-935A-4F23-9D00-81EE4E5A4346}</ProjectGuid>
+    <ProjectGuid>{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AcBL</RootNamespace>
-    <AssemblyName>AcBL</AssemblyName>
+    <RootNamespace>GoogleSearcher</RootNamespace>
+    <AssemblyName>GoogleSearcher</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,18 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBL.cs" />
+    <Compile Include="GoogleData.cs" />
+    <Compile Include="GoogleFetcher.cs" />
+    <Compile Include="GoogleSearcher.cs" />
+    <Compile Include="IGotGoogleData.cs" />
+    <Compile Include="ISearchWithGoogle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AcCommon\AcCommon.csproj">
-      <Project>{ebd63774-2195-4cc2-a1e8-bf9587caedd3}</Project>
-      <Name>AcCommon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AcXmlParser\AcXmlParser.csproj">
-      <Project>{39ffa57c-bc2f-4888-b574-4700012480fa}</Project>
-      <Name>AcXmlParser</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

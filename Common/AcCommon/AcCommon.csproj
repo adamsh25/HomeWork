@@ -49,10 +49,6 @@
       <Project>{39ffa57c-bc2f-4888-b574-4700012480fa}</Project>
       <Name>AcXmlParser</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GoogleSearcher\AcGoogleSearcher.csproj">
-      <Project>{b5e8d248-9150-4cf0-9033-f5d85d3d50c5}</Project>
-      <Name>AcGoogleSearcher</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

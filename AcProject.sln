@@ -21,13 +21,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcCommon", "Common\AcCommon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcXmlParser", "Common\AcXmlParser\AcXmlParser.csproj", "{39FFA57C-BC2F-4888-B574-4700012480FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcGoogleSearcher", "Common\GoogleSearcher\AcGoogleSearcher.csproj", "{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcDAL", "DAL\AcDAL\AcDAL.csproj", "{230E16CD-FA87-4712-87B7-51C1BBD4E613}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestAcGoogleSearcher", "UnitTests\UnitTestAcGoogleSearcher\UnitTestAcGoogleSearcher.csproj", "{74135310-AB7B-43A8-A2C8-2780F0CAC565}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestAcXmlParser", "UnitTests\AcUnitTests\UnitTestAcXmlParser.csproj", "{2DCFE84F-EB2F-4DBB-A797-2E51A8692E1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcGoogleSearcher", "Common\GoogleSearcher\AcGoogleSearcher.csproj", "{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,6 @@ Global
 		{39FFA57C-BC2F-4888-B574-4700012480FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39FFA57C-BC2F-4888-B574-4700012480FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39FFA57C-BC2F-4888-B574-4700012480FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{230E16CD-FA87-4712-87B7-51C1BBD4E613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{230E16CD-FA87-4712-87B7-51C1BBD4E613}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{230E16CD-FA87-4712-87B7-51C1BBD4E613}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,6 +63,10 @@ Global
 		{2DCFE84F-EB2F-4DBB-A797-2E51A8692E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DCFE84F-EB2F-4DBB-A797-2E51A8692E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DCFE84F-EB2F-4DBB-A797-2E51A8692E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E8D248-9150-4CF0-9033-F5D85D3D50C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
