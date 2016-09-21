@@ -43,13 +43,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AcCommon\AcCommon.csproj">
+    <ProjectReference Include="..\..\Common\AcCommon\AcCommon.csproj">
       <Project>{ebd63774-2195-4cc2-a1e8-bf9587caedd3}</Project>
       <Name>AcCommon</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AcXmlParser\AcXmlParser.csproj">
+    <ProjectReference Include="..\..\Common\AcXmlParser\AcXmlParser.csproj">
       <Project>{39ffa57c-bc2f-4888-b574-4700012480fa}</Project>
       <Name>AcXmlParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\GoogleSearcher\AcGoogleSearcher.csproj">
+      <Project>{b5e8d248-9150-4cf0-9033-f5d85d3d50c5}</Project>
+      <Name>AcGoogleSearcher</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
