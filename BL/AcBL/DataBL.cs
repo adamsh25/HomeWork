@@ -1,4 +1,5 @@
 ﻿using AcCommon;
+using AcDAL;
 using AcXmlParser;
 using GoogleSearcher;
 using System;
@@ -28,7 +29,8 @@ namespace AcBL
         /// <param name="googleDataToSave"></param>
         public static void SaveGoogleData(IEnumerable<GoogleData> googleDataToSave)
         {
-
+            var mongoDB = new AcMongoDAL();
+            mongoDB.saveGoogleDocuments(googleDataToSave);
         }
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace GoogleSearcher
         /// ISearchWithGoogle Items, And Will Store The Result Inside The GoogleData Objects.
         /// </summary>
         /// <param name="itemsForSearch">The Items That Has The Option To Be Searched By Google</param>
-        /// <returns>The GoogleData Object List Fetched With The Best Result<</returns>
+        /// <returns>The GoogleData Object List Fetched With The Best Result</returns>
         public static IEnumerable<GoogleData> GetGoogleDataList(IEnumerable<ISearchWithGoogle> itemsForSearch)
         {
             List<GoogleData> googleDataList = new List<GoogleData>();
@@ -27,7 +27,7 @@ namespace GoogleSearcher
         }
 
         /// <summary>
-        /// This Method Will Search In Google, The Best Result Using The Search Text Provided In The 
+        /// This Method Will Search In Google The Best Result Using The Search Text Provided In The 
         /// ISearchWithGoogle Item, And Will Store The Result Inside The GoogleData Object.
         /// </summary>
         /// <param name="itemForSearch">The Item That Has The Option To Be Searched By Google</param>
