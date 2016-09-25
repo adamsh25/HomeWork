@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GoogleSearcher
@@ -17,13 +18,27 @@ namespace GoogleSearcher
         public static IEnumerable<GoogleData> GetGoogleDataList(IEnumerable<ISearchWithGoogle> itemsForSearch)
         {
             List<GoogleData> googleDataList = new List<GoogleData>();
-            foreach (var itemForSearch in itemsForSearch)
+            var dicOfItemsToSearch = itemsForSearch.GroupBy(t => t.TextToSearch);
+            GoogleSearcher.OnGoogleAPIIsNotSupportedAnymore += OnGoogleAPIIsNotSupportedAnymore;
+            foreach (var itemForSearch in dicOfItemsToSearch)
             {
                 // Here I will use Threading to get all the google data for all the items.
-                GoogleData googleData = GoogleFetcher.GetGoogleData(itemForSearch);
+                GoogleData googleData = GoogleFetcher.GetGoogleData(itemForSearch.Key);
                 googleDataList.Add(googleData);
             }
             return googleDataList;
+        }
+
+        private static void OnGoogleAPIIsNotSupportedAnymore(object sender, GoogleAPINotSupportedEventArgs e)
+        {
+            if (!GoogleSearcher.IsAPISupported)
+            {
+                Console.WriteLine("Wait For API To Be Fixed Automatically...");
+            }
+            else
+            {
+
+            }
         }
 
         /// <summary>
@@ -32,12 +47,14 @@ namespace GoogleSearcher
         /// </summary>
         /// <param name="itemForSearch">The Item That Has The Option To Be Searched By Google</param>
         /// <returns>The GoogleData Object Fetched With The Best Result</returns>
-        public static GoogleData GetGoogleData(ISearchWithGoogle itemForSearch)
+        public static GoogleData GetGoogleData(string searchText)
         {
-            GoogleData googleData = new GoogleData(itemForSearch.TextToSearch);
-            // All the business logic to get google data from google will be written here.
-            googleData.GoogleDataValue = "Best Result From Google";
+            GoogleData googleData = new GoogleData(searchText);
+            Thread t = new Thread(() => { googleData.GoogleDataValue = GoogleSearcher.GetBestGoogleAnswer(googleData); });
+            t.Start();
+            t.Join();
             return googleData;
         }
+
     }
 }

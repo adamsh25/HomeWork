@@ -15,6 +15,10 @@ namespace AcDAL
 
         public const string GOOGLE_BEST_RESULT_COLLECTION_NAME = "GoogleBestResults";
 
+        public const string TEXT_TO_SEARCH_MONGO_FIELD = "TextToSearch";
+
+        
+
 
     }
 }

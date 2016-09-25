@@ -12,8 +12,15 @@ namespace AcDAL
 {
     public class AcMongoDAL
     {
+        #region Members
+        
         private static object syncRoot = new Object();
-        private static MongoClient client = null;
+
+        private static MongoClient client = null; 
+        
+        #endregion
+
+        #region Properties
 
         public static string ConnectionString
         {
@@ -60,21 +67,39 @@ namespace AcDAL
             {
                 return AcMongoDAL.MongoClient.GetDatabase(MongoConsts.GOOGLE_INFO_DB_NAME);
             }
-        }
+        } 
 
+        #endregion
+
+        #region Ctor
 
         public AcMongoDAL()
         {
-            
+
         }
+ 
+        #endregion
+        
+        #region Methods
 
         public static async void AddDefaultIndex()
         {
-            var keys = Builders<BsonDocument>.IndexKeys.Ascending("TextToSearch");
-            var indexOptions = new CreateIndexOptions();
-            indexOptions.Unique = true;
-            var collection = AcMongoDAL.GoogleMongoDB.GetCollection<BsonDocument>(MongoConsts.GOOGLE_BEST_RESULT_COLLECTION_NAME);
-            await collection.Indexes.CreateOneAsync(keys, indexOptions);
+            try
+            {
+                var keys = Builders<BsonDocument>.IndexKeys.Ascending(MongoConsts.TEXT_TO_SEARCH_MONGO_FIELD);
+                var indexOptions = new CreateIndexOptions();
+                indexOptions.Unique = true;
+                var collection = AcMongoDAL.GoogleMongoDB.GetCollection<BsonDocument>(MongoConsts.GOOGLE_BEST_RESULT_COLLECTION_NAME);
+                await collection.Indexes.CreateOneAsync(keys, indexOptions);
+            }
+            catch (TimeoutException timeotEx)
+            {
+                Console.WriteLine("Please Make Sure MongoDB Is Running");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error Adding Index To MongoDB", e.Message);
+            }
         }
 
         public bool saveGoogleDocuments(IEnumerable<GoogleData> googleDocuments)
@@ -107,9 +132,8 @@ namespace AcDAL
 
             return success;
         }
-
-
-
+ 
+        #endregion
 
     }
 }

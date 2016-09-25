@@ -22,5 +22,20 @@ namespace GoogleSearcher
             this.TextToSearch = textToSearch;
             this.GoogleDataValue = googleDataValue;
         }
+
+        public override string ToString()
+        {
+            return string.Format("Google Text To Search: {0}, Google Answer: {1}", this.TextToSearch, this.GoogleDataValue);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return (obj as GoogleData).TextToSearch.Equals(this.TextToSearch);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.TextToSearch.GetHashCode();
+        }
     }
 }
