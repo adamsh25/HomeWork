@@ -1,13 +1,11 @@
-﻿using AcCommon;
-using AcDAL;
-using AcXmlParser;
-using GoogleSearcher;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AcCommon;
+using AcDAL;
+using AcXmlParser;
+using GoogleSearcher;
 
 namespace AcBL
 {
@@ -58,11 +56,11 @@ namespace AcBL
 
         public static void ProcessEvents(IEnumerable<Event> events)
         {
-            DataBL.SaveEvents(events);
-            var googleData = DataBL.GetGoogleData(events);
-            DataBL.SaveGoogleData(googleData);
-            DataBL.FetchObjectsWithGoogleData(ref events, googleData);
-            events.ToList().ForEach(e => Console.WriteLine(string.Format("Event: {0}, Google Data: {1} \n", e.ToString(), e.GoogleDataValue)));
+            SaveEvents(events);
+            var googleData = GetGoogleData(events);
+            SaveGoogleData(googleData);
+            FetchObjectsWithGoogleData(ref events, googleData);
+            events.ToList().ForEach(e => Console.WriteLine("Event: {0}, Google Data: {1} \n", e.ToString(), e.GoogleDataValue));
 
         }
 
@@ -70,7 +68,7 @@ namespace AcBL
         {
             FileInfo f = new FileInfo(@"d:\jav_logs.xml");
             var events = Parser.Parse<Event>(f);
-            DataBL.ProcessEvents(events);
+            ProcessEvents(events);
         }
     }
 }

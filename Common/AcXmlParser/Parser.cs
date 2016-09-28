@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace AcXmlParser
@@ -24,8 +21,8 @@ namespace AcXmlParser
             XmlNodeList xmlNodeList = xmldoc.GetElementsByTagName(clsAttribute.NodeName);
             foreach (XmlNode node in xmlNodeList)
             {
-                T instance = (T)Activator.CreateInstance<T>();
-                instance = (T)ParseClass<T>(node, instance);
+                T instance = Activator.CreateInstance<T>();
+                instance = ParseClass(node, instance);
                 clsList.Add(instance);
             }
             return clsList;
@@ -42,7 +39,7 @@ namespace AcXmlParser
                     .SingleOrDefault(a=> a is IXmlParseAttribute) as IXmlParseAttribute;
                 if (xmlAttribute != null)
                 {
-                    xmlAttribute.SetValueByAttribute<T>(instance, xmlElement, clsProp);
+                    xmlAttribute.SetValueByAttribute(instance, xmlElement, clsProp);
                 }
             }
 

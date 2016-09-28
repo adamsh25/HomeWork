@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace AcXmlParser
@@ -18,7 +14,7 @@ namespace AcXmlParser
             try
             {
 
-                string value = xmlElement[this.NodePath].GetAttribute(this.AttrPath);
+                string value = xmlElement[NodePath].GetAttribute(AttrPath);
                 clsProp.SetValue(instance, Convert.ChangeType(value, clsProp.PropertyType), null);
             }
             catch (Exception e)

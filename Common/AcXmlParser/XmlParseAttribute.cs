@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace AcXmlParser
@@ -14,9 +10,9 @@ namespace AcXmlParser
         
         public void SetValueByAttribute<T>(T instance, XmlNode xmlElement, PropertyInfo clsProp)
         {
-            if (this.isValid(instance, xmlElement, clsProp))
+            if (isValid(instance, xmlElement, clsProp))
             {
-                this.SetValue<T>(instance, xmlElement, clsProp);
+                SetValue(instance, xmlElement, clsProp);
             }
         }
 

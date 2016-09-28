@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace GoogleSearcher
 {
@@ -22,8 +20,8 @@ namespace GoogleSearcher
             GoogleSearcher.OnGoogleAPIIsNotSupportedAnymore += OnGoogleAPIIsNotSupportedAnymore;
             foreach (var itemForSearch in dicOfItemsToSearch)
             {
-                // Here I will use Threading to get all the google data for all the items.
-                GoogleData googleData = GoogleFetcher.GetGoogleData(itemForSearch.Key);
+                // Here I will use Threading to get all the Google data for all the items.
+                GoogleData googleData = GetGoogleData(itemForSearch.Key);
                 googleDataList.Add(googleData);
             }
             return googleDataList;
@@ -34,10 +32,6 @@ namespace GoogleSearcher
             if (!GoogleSearcher.IsAPISupported)
             {
                 Console.WriteLine("Wait For API To Be Fixed Automatically...");
-            }
-            else
-            {
-
             }
         }
 

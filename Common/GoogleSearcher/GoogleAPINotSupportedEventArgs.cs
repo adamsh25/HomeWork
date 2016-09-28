@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GoogleSearcher
 {
@@ -14,8 +10,8 @@ namespace GoogleSearcher
 
         public GoogleAPINotSupportedEventArgs(string errorMessage, DateTime dateReported)
         {
-            this.ErrorMessage = errorMessage;
-            this.DateReported = dateReported;
+            ErrorMessage = errorMessage;
+            DateReported = dateReported;
         }
     }
 }

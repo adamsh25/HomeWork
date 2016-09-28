@@ -1,10 +1,5 @@
 ﻿using AcXmlParser;
 using GoogleSearcher;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AcCommon
 {
@@ -20,14 +15,14 @@ namespace AcCommon
 
         public override string ToString()
         {
-            return this.System.EventID.ToString();
+            return System.EventID.ToString();
         }
 
         public string TextToSearch
         {
             get
             {
-                return this.System.EventID.ToString();
+                return System.EventID.ToString();
             }
             set { }
         }

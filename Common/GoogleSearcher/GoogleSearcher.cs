@@ -1,10 +1,7 @@
-﻿using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using HtmlAgilityPack;
 
 namespace GoogleSearcher
 {
@@ -22,35 +19,35 @@ namespace GoogleSearcher
 
             try
             {
-                if (!GoogleSearcher.IsAPISupported)
+                if (!IsAPISupported)
                 {
-                    GoogleSearcher.ResetEventHandler.WaitOne();
+                    ResetEventHandler.WaitOne();
                     Console.WriteLine("Wait For API To Be Supported Again...");
                 }
 
                 Console.WriteLine("Getting Google Answer For {0}", itemForSearch.TextToSearch);
                 HtmlWeb htmlWeb = new HtmlWeb();
-                HtmlDocument document = htmlWeb.Load(GoogleSearcher.GetGoogleSearcherURL(itemForSearch.TextToSearch));
+                HtmlDocument document = htmlWeb.Load(GetGoogleSearcherURL(itemForSearch.TextToSearch));
 
                 try
                 {
                     result = document.DocumentNode.SelectSingleNode("//*[@id=\"search\"]").Descendants("a").ToList()[0].InnerText;
-                    if (result.Length % 2 == 0)
+                    if (result.Length % 6 == 0)
                     {
                         throw new Exception("A Test For The Manual Reset Event Job");
                     }
                 }
                 catch (Exception e)
                 {
-                    GoogleSearcher.IsAPISupported = false;
-                    GoogleSearcher.OnGoogleAPIIsNotSupportedAnymore(itemForSearch, new GoogleAPINotSupportedEventArgs(e.Message, DateTime.Now));
+                    IsAPISupported = false;
+                    OnGoogleAPIIsNotSupportedAnymore(itemForSearch, new GoogleAPINotSupportedEventArgs(e.Message, DateTime.Now));
                 }
                 Console.WriteLine("Got Google Answer For {0}. Answer: {1}.", itemForSearch.TextToSearch, result);
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(string.Format("Error in GetBestGoogleAnswer, e:{0}", e.Message));
+                Console.WriteLine("Error in GetBestGoogleAnswer, e:{0}", e.Message);
             }
 
             return result;

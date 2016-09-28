@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace AcXmlParser
@@ -17,7 +13,7 @@ namespace AcXmlParser
             try
             {
                 object innerInstance = Activator.CreateInstance(clsProp.PropertyType);
-                var innerNode = xmlElement[this.NodeName];
+                var innerNode = xmlElement[NodeName];
                 innerInstance = Parser.ParseClass(innerNode, innerInstance);
                 clsProp.SetValue(instance, innerInstance, null);
             }

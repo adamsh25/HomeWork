@@ -1,12 +1,9 @@
-﻿using GoogleSearcher;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using GoogleSearcher;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace AcDAL
 {
@@ -16,7 +13,7 @@ namespace AcDAL
         
         private static object syncRoot = new Object();
 
-        private static MongoClient client = null; 
+        private static MongoClient client; 
         
         #endregion
 
@@ -30,11 +27,11 @@ namespace AcDAL
 
                 try
                 {
-                    connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[MongoConsts.MONGO_DB_CONNETCTION_STRING_NAME].ConnectionString;
+                    connectionString = ConfigurationManager.ConnectionStrings[MongoConsts.MONGO_DB_CONNETCTION_STRING_NAME].ConnectionString;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(string.Format("Error in AcMongoDAL.ConnectionString e:{0}", e.Message));
+                    Console.WriteLine("Error in AcMongoDAL.ConnectionString e:{0}", e.Message);
                     throw;
                 }
 
@@ -52,8 +49,8 @@ namespace AcDAL
                     {
                         if (client == null)
                         {
-                            client = new MongoClient(AcMongoDAL.ConnectionString);
-                            AcMongoDAL.AddDefaultIndex();
+                            client = new MongoClient(ConnectionString);
+                            AddDefaultIndex();
                         }
                     }
                 }
@@ -65,7 +62,7 @@ namespace AcDAL
         {
             get
             {
-                return AcMongoDAL.MongoClient.GetDatabase(MongoConsts.GOOGLE_INFO_DB_NAME);
+                return MongoClient.GetDatabase(MongoConsts.GOOGLE_INFO_DB_NAME);
             }
         } 
 
@@ -73,11 +70,6 @@ namespace AcDAL
 
         #region Ctor
 
-        public AcMongoDAL()
-        {
-
-        }
- 
         #endregion
         
         #region Methods
@@ -89,7 +81,7 @@ namespace AcDAL
                 var keys = Builders<BsonDocument>.IndexKeys.Ascending(MongoConsts.TEXT_TO_SEARCH_MONGO_FIELD);
                 var indexOptions = new CreateIndexOptions();
                 indexOptions.Unique = true;
-                var collection = AcMongoDAL.GoogleMongoDB.GetCollection<BsonDocument>(MongoConsts.GOOGLE_BEST_RESULT_COLLECTION_NAME);
+                var collection = GoogleMongoDB.GetCollection<BsonDocument>(MongoConsts.GOOGLE_BEST_RESULT_COLLECTION_NAME);
                 await collection.Indexes.CreateOneAsync(keys, indexOptions);
             }
             catch (TimeoutException timeotEx)
@@ -108,7 +100,7 @@ namespace AcDAL
 
             foreach (var item in googleDocuments)
             {
-                success = this.saveGoogleDocument(item);
+                success = saveGoogleDocument(item);
             }
 
             return success;
@@ -120,14 +112,14 @@ namespace AcDAL
 
             try
             {
-                var collection = AcMongoDAL.GoogleMongoDB.GetCollection<BsonDocument>(MongoConsts.GOOGLE_BEST_RESULT_COLLECTION_NAME);
-                var documentToInsert = googleDataToSave.ToBsonDocument<GoogleData>();
+                var collection = GoogleMongoDB.GetCollection<BsonDocument>(MongoConsts.GOOGLE_BEST_RESULT_COLLECTION_NAME);
+                var documentToInsert = googleDataToSave.ToBsonDocument();
                 collection.InsertOne(documentToInsert);
                 success = true;
             }
             catch (Exception e)
             {
-                Console.WriteLine(string.Format("Error in AcMongoDAL.saveGoogleDocument e:{0}", e.Message));
+                Console.WriteLine("Error in AcMongoDAL.saveGoogleDocument e:{0}", e.Message);
             }
 
             return success;

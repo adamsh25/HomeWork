@@ -1,9 +1,6 @@
-﻿using AcBL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using AcBL;
+using GoogleSearcher;
 
 namespace CTestExamAdamCheriki
 {
@@ -17,7 +14,7 @@ namespace CTestExamAdamCheriki
             Console.Read();
         }
 
-        static void OnGoogleAPIIsNotSupportedAnymore(object sender, GoogleSearcher.GoogleAPINotSupportedEventArgs e)
+        static void OnGoogleAPIIsNotSupportedAnymore(object sender, GoogleAPINotSupportedEventArgs e)
         {
             Console.WriteLine("Send Error By Email, e:{0}, date:{1}", e.ErrorMessage, e.DateReported.ToLongTimeString());
             Console.WriteLine("Save Error To Mongo DB For Future Analysis, e:{0}, date:{1}", e.ErrorMessage, e.DateReported.ToLongTimeString());
